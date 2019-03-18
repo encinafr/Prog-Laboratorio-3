@@ -1,0 +1,4 @@
+
+Ejecuta el siguiente comando:
+
+git pull origin master --allow-unrelated-histories
