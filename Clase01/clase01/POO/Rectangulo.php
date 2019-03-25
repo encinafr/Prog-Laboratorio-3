@@ -31,9 +31,15 @@ class Rectangulo extends FiguraGeometrica{
 
     public function Dibujar(){
         echo(GetColor());
-        echo "******	<br>";
-		echo "****** <br>";
-		echo "****** <br>";
+        for($i=0;$i<=$this->_ladoDos;$i++)
+        {
+            for($j=0;$j<=$this->_ladoUno;$j++)
+            {
+                $retorno=$retorno."*";
+            }
+            $retorno=$retorno."</br>";
+        }
+        return  $retorno;
     }
 
     public function ToString(){
