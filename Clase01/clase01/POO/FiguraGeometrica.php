@@ -6,17 +6,28 @@ abstract class FiguraGeometrica{
     protected $_color;
     protected $_perimetro;
     protected $_superficie;
-
-    public function _construct()
+    public function __construct()
     {
-
+        $this->_color="Red";
+        $this->_perimetro=0;
+        $this->_superficie=0;
     }
+    public function GetColor()
+    {
+        return $this->_color;
+    }
+    public function SetColor($color)
+    {
+        $this->_color=$color;
+    }
+    
+     abstract function Dibujar();
+     abstract function CalcularDatos();
 
-    protected abstract function CalcularDatos();
-    protected abstract function Dibujar();
-    protected abstract function GetColor();
-    protected abstract function SetColor($color);
-    protected abstract function ToString();
+    public function ToString()
+    {
+        return "Color: ". $this->_color."</br>Perimetro: ".$this->_perimetro."</br>Superficie: ".$this->_superficie;
+    }
 
 }
 

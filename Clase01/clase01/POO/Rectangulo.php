@@ -3,49 +3,37 @@
 
 class Rectangulo extends FiguraGeometrica{
 
-    public $_ladoUno;
-    public $_ladoDos;
-
-    public function _construct($l1,$l2){
-        parent::_construct();
-        CalcularDatos();
-        $this->lad = $l1;
-        $this->_ladoUno = $l2;
-    }
-
-
-    public function GetColor()
+    private $_ladoUno;
+    private $_ladoDos;
+    public function __construct($L1,$L2)
     {
-        return parent::$_color;
+        parent::__construct();
+        $this->_ladoUno=$L1;
+        $this->_ladoDos=$L2;
+        $this->CalcularDatos();
     }
-
-    public function SetColor($color)
+    public function CalcularDatos()
     {
-        parent::$_color = $_color;
+        $this->_perimetro=$this->_ladoUno*2+$this->_ladoDos*2;
+        $this->_superficie=$this->_ladoUno*$this->_ladoDos;
     }
-
-    protected function CalcularDatos(){
-        parent::$_perimetro_perimetro  = 2*($_ladoUno+$_ladoDos);
-        parent::$_superficie = $_ladoUno * $_ladoDos;
-    }
-
-    public function Dibujar(){
-        echo(GetColor());
-        for($i=0;$i<=$this->_ladoDos;$i++)
+    public function Dibujar()
+    {
+        $retorno="<div style='color:".$this->GetColor()."'>";
+        for($i=1;$i<=$this->_ladoUno;$i++)
         {
-            for($j=0;$j<=$this->_ladoUno;$j++)
+            for($j=1;$j<=$this->_ladoDos;$j++)
             {
                 $retorno=$retorno."*";
+             
             }
             $retorno=$retorno."</br>";
         }
-        return  $retorno;
+        return  $retorno."</div>";
     }
-
-    public function ToString(){
-        echo($_ladoUno);
-        echo($_ladoDos);
-        Dibujar();
+    public function ToString()
+    {
+        return parent::ToString()."</br>".$this->Dibujar();
     }
 }
 
