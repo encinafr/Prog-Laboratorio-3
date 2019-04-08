@@ -26,6 +26,23 @@
         fclose($fp);
     }
 
+    public static function TraerTodos(){
+        $fp =fopen("Empleado.txt","r");
+        $empArray = array();
+         
+        
+        while(!feof($fp))
+        {
+            $stringEmpleado = fgets($fp);
+            if($stringEmpleado == "")
+            {
+                continue;
+            }
+            $arrayEmpleado = explode("-",$stringEmpleado);
+            array_push($empArray, new Empleado($arrayEmpleado[0],$arrayEmpleado[1],$arrayEmpleado[2],$arrayEmpleado[3],$arrayEmpleado[4]));
+        }
+        return $empArray;
+    }
 
     public function ToString(){
         return $this->Legajo.'-'.$this->Nombre.' - '.$this->Apellido.'-'.$this->Sueldo.'-'.$this->Path_foto;

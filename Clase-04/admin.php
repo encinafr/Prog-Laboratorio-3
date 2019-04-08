@@ -1,8 +1,8 @@
 <?php
     require_once "Empleado.php";
 
-    var_dump($_FILES);echo("<br>");
-    var_dump($_POST);
+    // var_dump($_FILES);echo("<br>");
+    // var_dump($_POST);
 
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -15,6 +15,14 @@
 
     $empleado = new Empleado($legajo,$nombre,$apellido,$sueldo,$destino);//$foto['name']
     Empleado::Agregar($empleado);
+    // var_dump(Empleado::TraerTodos());
+    $EmpleadosObtenidos = Empleado::TraerTodos();
+    foreach ( $EmpleadosObtenidos as $empleado ) {
+         
+            echo($empleado->Nombre);
+            echo('<img src="".$empleado->Path_foto" width="100px" heigth="100px" />');
+            
+    }
 
-
+    
 ?>
