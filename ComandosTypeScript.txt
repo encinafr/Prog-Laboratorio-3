@@ -1,0 +1,18 @@
+tsc --outFitsc --init
+
+Modificar el archivo tsconfig.json.
+Modificar a true, el valor booleano del campo "sourceMap". 
+Esto permitirá ‘debbuguear’ desde la consola de cualquier navegador Web y desde la consola integrada del Visual Studio Code.
+Por último, abrir el menú de Tareas y seleccionar
+Ejecutar tarea de compilación
+Elegir tsc: build tsconfig.json, para que transpile con las configuraciones elegidas.
+
+Para que se transpile un archivo TypeScript, se utiliza el siguiente comando, desde la terminal:
+tsc nombreArchivo.ts
+
+Para agregar una inspección sobre un archivo, se escribirá el siguiente comando:
+tsc -w nombeArchivo
+
+
+Para juntar varios archivos .ts en un solo archivo de salida:
+tsc --outFile main arch1 arch2
