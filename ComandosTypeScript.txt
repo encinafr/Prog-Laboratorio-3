@@ -1,4 +1,4 @@
-tsc --outFitsc --init
+tsc --init
 
 Modificar el archivo tsconfig.json.
 Modificar a true, el valor booleano del campo "sourceMap". 
