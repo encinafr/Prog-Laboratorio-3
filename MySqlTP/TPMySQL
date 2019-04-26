@@ -1,0 +1,22 @@
+1- SELECT * FROM `productos` ORDER BY pNombre;
+2- SELECT * FROM `proveedores` AS p WHERE p.localidad = 'Quilmes';
+3- SELECT * FROM `envios` AS e WHERE e.cantidad BETWEEN 200 and 300;
+4- SELECT SUM(cantidad) AS cantTotal FROM `envios`;
+5- SELECT `Numero` FROM `envios` LIMIT 3;
+6- SELECT prov.nombre,prod.pnombre FROM proveedores AS prov
+ JOIN envios As e ON prov.numero = e.Numero 
+ JOIN productos AS prod ON prod.pNumero = e.pNumero;
+7- select p.precio * e.cantidad AS PrecioXCantidad FROM productos As p JOIN envios AS e On p.pNumero = e.pNumero;
+8- SELECT SUM(e.cantidad) from envios As e where e.numero = 102 and e.pNumero = 1;
+9-SELECT envios.pNumero FROM envios 
+  INNER JOIN provedores ON provedores.Localidad="Avellaneda" AND (envios.Numero=provedores.Numero);
+10-SELECT Domicilio,Localidad FROM provedores WHERE provedores.Nombre LIKE "%i%";
+11-INSERT INTO `productos`(`pNumero`, `pNombre`, `Precio`, `Tamaño`) VALUES (4,"Chocolate",25.35,"Chico");
+12-INSERT INTO provedores (`Numero`) VALUES ('4');
+13-INSERT INTO `provedores`(`Numero`, `Nombre`, `Localidad`) VALUES (107,"Rosales","La Plata");
+14-UPDATE productos SET precio=97.50 WHERE productos.Tamaño="Grande";
+15-UPDATE productos set productos.Tamaño="Mediano" 
+   WHERE productos.Tamaño="Chico" 
+   AND productos.pNumero IN (SELECT envios.pNumero FROM envios WHERE envios.Cantidad>=300);
+16-DELETE FROM `productos` WHERE pNumero=1;
+17-DELETE FROM `provedores` WHERE provedores.Numero not IN(select envios.Numero from envios);

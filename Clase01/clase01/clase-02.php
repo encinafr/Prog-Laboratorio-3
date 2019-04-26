@@ -1,5 +1,6 @@
 <?php
  function Potencia($num){
+	 echo("Re Piola gato");
      return pow($num,4);
  }
 
